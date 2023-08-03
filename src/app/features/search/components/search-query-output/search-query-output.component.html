@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="mb-3 col-md-8">
+        <div class="mb-3" *ngIf="shouldShowOutputSearch()">
+            <label for="outputSearch" class="form-label fw-bold">Output</label><br />
+            <textarea class="form-control" id="outputSearchText" readonly   
+                name="outputSearchText" rows="6" wrap="hard" maxlength="100">{{outputSearchText}}</textarea>
+        </div>
+    </div>
+</div>

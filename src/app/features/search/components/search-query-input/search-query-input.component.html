@@ -1,0 +1,48 @@
+<form [formGroup]="searchQueryInputForm" (ngSubmit)="submitSearchQueryForm()">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="mb-3 col-md-4">
+            <label for="moduleOptions" class="form-label fw-bold">Module<span class="text-danger"> *
+                </span></label>
+            <select class="form-select" formControlName="moduleOptions" id="moduleOptions" name="moduleOptions"
+                (change)="onChangeModuleSelect($event)">
+                <option readonly="true" [selected]="true" value="default">Select option</option>
+                <option *ngFor="let item of moduleConfigs; 
+                        let i=index, let f=first" value="{{item.id}}">
+                    {{item.title}}-{{item.subtitle}}
+                </option>
+            </select>
+        </div>
+        <div class="mb-2 col-md-4">
+            <label for="featureOptions" class="form-label  fw-bold">Feature<span class="text-danger"> *
+                </span></label><br />
+            <select class="form-select" formControlName="featureOptions" id="featureOptions"
+                name="featureOptions" [disabled]="shouldDisableFeatureOptions()">
+                <option readonly="true" [selected]="true" value="default">Select option</option>
+                <option *ngFor="let item of filteredFeature; 
+                        let i=index, let f=first" value="{{i}}">{{item}}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-md-2"></div>
+        <div class="mb-3 col-md-8">
+            <label for="inputSearchText" class="form-label  fw-bold">Search Description<span class="text-danger"> *
+                </span></label><br />
+            <textarea class="form-control" formControlName="inputSearchText" id="inputSearchText" name="inputSearchText"
+            [placeholder]="searchDescPlaceholder"
+                rows="3" [disabled]="true"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-1 mt-1 col-md-12 text-center">
+            <button type="submit" class="btn btn-primary col-md-3 col-sm-3 fw-bold"
+                [disabled]="shouldDisableSearchButton()">Search
+                ✨</button>
+        </div>
+    </div>
+</form>
