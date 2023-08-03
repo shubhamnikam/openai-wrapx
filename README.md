@@ -1,4 +1,9 @@
 ## Wrap-x
+vercel hosted site: https://openai-wrapx.vercel.app
+
+![mobile-web](https://i.imgur.com/NaVXqlel.png)
+![desktop-web](https://i.imgur.com/VDIEyAxh.png)
+
 ```bash
 # db
     - firebase - firestore
